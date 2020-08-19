@@ -11,7 +11,7 @@ Hence this mod basically just adds slightly better graphics to the original More
 _Note:_ This mod uses some of the assets from that mod, however, the code is completely different, and the mods are not compatible with each other.
 
 ## Recommended Mods
-It is stringly recommended that you install [EasyCraft](https://www.nexusmods.com/subnautica/mods/24) and [Radial Tabs](https://www.nexusmods.com/subnautica/mods/207) installed.
+It is strongly recommended that you install [EasyCraft](https://www.nexusmods.com/subnautica/mods/24) and [Radial Tabs](https://www.nexusmods.com/subnautica/mods/207) installed.
 
 ## Credits
 Great thanks to [@PrimeSonic](https://github.com/PrimeSonic) and [@silvervirus](https://github.com/silvervirus) for guiding me through making this mod.  
