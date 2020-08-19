@@ -8,10 +8,16 @@ using Logger = QModManager.Utility.Logger;
 
 namespace BetterIngots
 {
+    /// <summary>
+    /// Assets for the mod
+    /// </summary>
     public static class ModAssets
     {
         private static readonly List<TechType> SupportedTypes = new List<TechType> { TechType.Copper, TechType.Gold, TechType.Lead, TechType.Silver, TechType.AluminumOxide, TechType.UraniniteCrystal, TechType.Salt, TechType.Quartz, TechType.CrashPowder, TechType.Sulphur, TechType.Diamond, TechType.Magnetite, TechType.Magnesium, TechType.Kyanite, TechType.Lithium };
-        public static IDictionary<TechType, Material> Materials = new Dictionary<TechType, Material>();
+        /// <summary>
+        /// Dictionary of all materials loaded
+        /// </summary>
+        public static IDictionary<TechType, Material> Materials { get; internal set; } = new Dictionary<TechType, Material>();
 
         internal static void LoadMaterials()
         {
@@ -27,6 +33,11 @@ namespace BetterIngots
             }
         }
 
+        /// <summary>
+        /// Load and get the sprite for a given name, looking inside the Sprites folder in the Assets folder of the mod
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static Atlas.Sprite GetSprite(string name)
         {
             var path = Path.Combine(Names.SpritesFolder, $"{name}.png");

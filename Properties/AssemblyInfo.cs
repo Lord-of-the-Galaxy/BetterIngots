@@ -33,8 +33,8 @@ using System.Runtime.InteropServices;
 //      Minor Version
 //      Patch
 [assembly: AssemblyVersion("1.0")] //major.minor
-[assembly: AssemblyFileVersion("1.0.1")] //major.minor.patch
-[assembly: AssemblyInformationalVersion("1.0.1a")] //major.minor[.patch[alpha/beta]]
+[assembly: AssemblyFileVersion("1.0.2")] //major.minor.patch
+[assembly: AssemblyInformationalVersion("1.0.2a")] //major.minor[.patch[alpha/beta]]
 /* Expect (not guaranteed):
  * Major version change: possibly broken backwards compatibility
  * Minor version change: the vanilla version is backwards compatible, but any derivatives of the mod may be broken

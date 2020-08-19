@@ -15,7 +15,7 @@ using Logger = QModManager.Utility.Logger;
 namespace BetterIngots
 {
     /// <summary>
-    /// 
+    /// Base class for al compressed types (like ingots) added by the mod
     /// </summary>
     public class CompressedObject : Craftable
     {
@@ -23,13 +23,17 @@ namespace BetterIngots
         private readonly TechType _baseType;
         private readonly TechType _ingredientType;
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <inheritdoc />
         public override CraftTree.Type FabricatorType { get; } = CraftTree.Type.Fabricator;
 
+        /// <inheritdoc />
+        public override string[] StepsToFabricatorTab
+        {
+            get { return new[]{ Names.FabricatorCategoryId, $"Pack{_type}" }; }
+        } // a bit inefficient but ok
+
         /// <summary>
-        /// 
+        /// [TODO]
         /// </summary>
         /// <param name="baseType"></param>
         /// <param name="type"></param>
@@ -81,11 +85,11 @@ namespace BetterIngots
         }
 
         /// <summary>
-        /// 
+        /// Add recipe for unpacking the compressed type into constituents
         /// </summary>
         protected internal void AddUnpackRecipe()
         {
-            var tempType = TechTypeHandler.AddTechType($"Unpack{ClassID}", $"Unpack {FriendlyName}", $"Unpack {FriendlyName} back into ", SpriteManager.Get(_ingredientType));
+            var tempType = TechTypeHandler.AddTechType($"Unpack{ClassID}", $"Unpack {FriendlyName}", $"Unpack {FriendlyName} back into {_ingredientType.AsString()}", SpriteManager.Get(_ingredientType));
             var unpackData = new TechData()
             {
                 craftAmount = 0,
@@ -93,7 +97,7 @@ namespace BetterIngots
                 LinkedItems = new List<TechType>(Enumerable.Repeat(_ingredientType, 10))
             };
             CraftDataHandler.SetTechData(tempType, unpackData);
-            CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, tempType);
+            CraftTreeHandler.AddCraftingNode(CraftTree.Type.Fabricator, tempType, Names.FabricatorCategoryId, $"Unpack{_type}");
         }
 
     }

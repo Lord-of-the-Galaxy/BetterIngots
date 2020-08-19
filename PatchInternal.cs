@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SMLHelper.V2.Handlers;
 
 namespace BetterIngots
 {
@@ -35,6 +36,13 @@ namespace BetterIngots
                 tempIngots[i].Patch();
                 tempIngots[i].AddUnpackRecipe();
             }
+        }
+
+        internal static void PatchFabricatorTabs()
+        {
+            CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, Names.FabricatorCategoryId, Names.FabricatorCategoryName, SpriteManager.Get(TechType.TitaniumIngot));
+            CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, $"Pack{CompactType.Ingot}", $"Pack {CompactType.Ingot}s", SpriteManager.Get(TechType.TitaniumIngot), Names.FabricatorCategoryId);
+            CraftTreeHandler.AddTabNode(CraftTree.Type.Fabricator, $"Unpack{CompactType.Ingot}", $"Unpack {CompactType.Ingot}s", SpriteManager.Get(TechType.Titanium), Names.FabricatorCategoryId);
         }
     }
 }

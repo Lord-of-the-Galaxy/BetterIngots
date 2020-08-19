@@ -21,24 +21,32 @@ namespace BetterIngots
         Ingot, // more types later
     }
     /// <summary>
-    /// 
+    /// List of constant names and folder locations
     /// </summary>
     public static class Names
     {
         /// <summary>
-        /// 
+        /// Friendly (display) name for the mod
         /// </summary>
         public static readonly string ModFriendlyName = "Better Ingots (Test)";
         /// <summary>
-        /// 
+        /// ID for the base fabricator tab
+        /// </summary>
+        public static readonly string FabricatorCategoryId = "BetterIngots";
+        /// <summary>
+        /// Friendly (display) name for the base tab
+        /// </summary>
+        public static readonly string FabricatorCategoryName = "Better Ingots";
+        /// <summary>
+        /// The folder that contains the mod assembly (dll)
         /// </summary>
         public static readonly string FolderRoot = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         /// <summary>
-        /// 
+        /// Assets folder of the mod
         /// </summary>
         public static readonly string AssetsFolder = Path.Combine(FolderRoot, "Assets");
         /// <summary>
-        /// 
+        /// Folder containing the sprites (located in the assets folder)
         /// </summary>
         public static readonly string SpritesFolder = Path.Combine(AssetsFolder, "Sprites");
     }
@@ -60,8 +68,11 @@ namespace BetterIngots
         {
             ModAssets.LoadMaterials();
             Logger.Log(Logger.Level.Debug, "Assets loaded.");
+            PatchInternal.PatchFabricatorTabs();
+            Logger.Log(Logger.Level.Debug, "Fabricator tabs added!");
             PatchInternal.PatchIngots();
-            Logger.Log(Logger.Level.Info, "All ingots patched!", showOnScreen: true);
+            Logger.Log(Logger.Level.Debug, "All ingots patched!");
+            Logger.Log(Logger.Level.Info, $"{Names.ModFriendlyName} patched!", showOnScreen: true);
         }
     }
 }
