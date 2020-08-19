@@ -1,4 +1,4 @@
-# Better Ingots (like MoreIngots)
+# Better Ingots (for SMLHelper)
 This [Subnautica](https://unknownworlds.com/subnautica/) mod adds new ingots to allow you to hoard much more of the raw materials available.  
 Every ingot consists of 10 of the original resource compressed into a single item, which can then be unpacked into its constituents when needed.  
 
