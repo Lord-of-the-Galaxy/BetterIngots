@@ -1,0 +1,10 @@
+{
+  "Id": "BetterIngots",
+  "DisplayName": "Better Ingots (Test)",
+  "Author": "Lord of Galaxy",
+  "Version": "1.0.2",
+  "Enable": true,
+  "AssemblyName": "BetterIngots.dll",
+  "Game": "Subnautica",
+  "Dependencies": [ "SMLHelper" ]
+}
